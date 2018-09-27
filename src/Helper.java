@@ -28,7 +28,15 @@ public class Helper
     public static User getUserFromNickname(List<User> users, String nickname)
     {
         //TODO
-        return null;
+    	Iterator<User> itr= users.iterator();
+    	User u = null;
+    	
+    	while(itr.hasNext()) {
+    		u = itr.next();
+    		if(u.getNickname().equals(nickname))
+    			break;
+    	}
+        return u;
     }
 
     /**
@@ -45,7 +53,15 @@ public class Helper
             List<BroadcastList> lists, String nickname)
     {
         //TODO
-        return null;
+    	Iterator<BroadcastList> itr= lists.iterator();
+    	BroadcastList b = null;
+    	while(itr.hasNext()) {
+    		b = itr.next();
+    		if(b.getNickname().equals(nickname))
+    			break;
+    		
+    	}
+        return b;
     }
 
     /**
@@ -58,6 +74,15 @@ public class Helper
     public static boolean isExistingGlobalContact(String nickname)
     {
         //TODO
+    	List<User> globalList = Config.getInstance().getAllUsers();
+    	Iterator<User> itr= globalList.iterator();
+    	
+    	User usr= null;
+    	while(itr.hasNext()) {
+    		usr= itr.next();
+    		if(usr.getNickname().equals(nickname))
+    			return true;
+    	}
         return false;
     }
 

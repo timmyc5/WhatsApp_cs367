@@ -24,6 +24,12 @@ public class Message
 {
 
     //TODO: add class fields here
+	private String fromNickname;
+	private String toNickname;
+	private String broadcastNickname;
+	private Date sentTime;
+	private String message;
+	private boolean read;
     
     /**
      * A constructor to instantiate this class. fromNickname and message cannot
@@ -51,6 +57,20 @@ public class Message
             Date sentTime, String message, boolean read) throws WhatsAppRuntimeException
     {
         //TODO
+    	if(fromNickname == null || (fromNickname.isEmpty()) || message == null || (message.isEmpty()) || sentTime == null) {
+    		throw new WhatsAppRuntimeException(Config.CANT_BE_EMPTY_OR_NULL);
+    	}
+    	if(broadcastNickname != null && toNickname != null) {
+    		throw new WhatsAppRuntimeException(Config.CANT_BE_EMPTY_OR_NULL);
+    	}
+    	
+    	this.fromNickname = fromNickname;
+    	this.toNickname = toNickname;
+    	this.broadcastNickname = broadcastNickname;
+    	this.sentTime = sentTime;
+    	this.message = message;
+    	this.read = read;
+    	
     }
 
     /**
@@ -61,7 +81,7 @@ public class Message
     public String getFromNickname()
     {
         //TODO
-        return null;
+        return this.fromNickname;
     }
 
     /**
@@ -72,6 +92,7 @@ public class Message
     public void setFromNickname(String fromNickname)
     {
         //TODO
+    	this.fromNickname = fromNickname;
     }
 
     /**
@@ -82,7 +103,7 @@ public class Message
     public String getToNickname()
     {
         //TODO
-        return null;
+        return this.toNickname;
     }
 
     /**
@@ -93,6 +114,7 @@ public class Message
     public void setToNickname(String toNickname)
     {
         //TODO
+    	this.toNickname= toNickname;
     }
 
     /**
@@ -103,7 +125,7 @@ public class Message
     public String getBroadcastNickname()
     {
         //TODO
-        return null;
+        return this.broadcastNickname;
     }
 
     /**
@@ -114,6 +136,7 @@ public class Message
     public void setBroadcastNickname(String broadcastNickname)
     {
         //TODO
+    	this.broadcastNickname = broadcastNickname;
     }
 
     /**
@@ -125,7 +148,7 @@ public class Message
     public Date getSentTime()
     {
         //TODO
-        return null;
+        return this.sentTime;
     }
 
     /**
@@ -137,6 +160,7 @@ public class Message
     public void setSentTime(Date sentTime)
     {
         //TODO
+    	this.sentTime = sentTime;
     }
 
     /**
@@ -147,7 +171,7 @@ public class Message
     public String getMessage()
     {
         //TODO
-        return null;
+        return this.message;
     }
 
     /**
@@ -158,6 +182,7 @@ public class Message
     public void setMessage(String message)
     {
         //TODO
+    	this.message = message;
     }
 
     /**
@@ -169,7 +194,7 @@ public class Message
     public boolean isRead()
     {
         //TODO
-        return false;
+        return this.read;
     }
 
     /**
@@ -181,6 +206,7 @@ public class Message
     public void setRead(boolean read)
     {
         //TODO
+    	this.read = read;
     }
 
 }
